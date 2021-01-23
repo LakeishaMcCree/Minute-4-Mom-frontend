@@ -14,7 +14,7 @@ class PostsContainer extends React.Component {
     render() {
         return (
             <div>
-                <PostInput/>
+                <PostInput/><br /><br />
                 <PostList posts={this.props.posts}/>
             </div>
         )
