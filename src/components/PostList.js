@@ -5,7 +5,7 @@ const PostList = (props) => {
 
     return (
         <div>
-            Posts
+            {props.posts.map(post => <li key={post.id}>{post.title} - {post.author}</li>)}
         </div>
 
     )
