@@ -1,17 +1,24 @@
 import React from 'react'
-
-
+import {connect} from 'react-redux'
+import {fetchPosts} from './actions/fetchPosts'
+import PostsContainer from './containers/PostsContainer'
 
 class App extends React.Component {
   
-
   render() {
     return (
       <div className="App">
-        App
+        <PostsContainer/>
+
       </div>
     );
   }
 }
 
-export default App;
+// const mapStateToProps = (state) => {
+//   return {
+//     posts: state.posts
+//   }
+// }
+
+export default connect()(App);
