@@ -1,6 +1,6 @@
 import React from 'react' 
 import {connect} from 'react-redux'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import {fetchPosts} from '../actions/fetchPosts'
 import PostInput from '../components/PostInput'
 import PostList from '../components/PostList'
@@ -16,9 +16,11 @@ class PostsContainer extends React.Component {
     render() {
         return (
             <div>
+                <Switch> 
                 <Route path='/posts/new' component={PostInput}/>
                 <Route path='/posts/:id' render={(routerProps) => <PostShow {...routerProps} posts={this.props.posts} />} />
-                <Route exact path='/posts' render={(routerProps) => <PostList {...routerProps} posts={this.props.posts} />} />
+                <Route path='/posts' render={(routerProps) => <PostList {...routerProps} posts={this.props.posts} />} />
+                </Switch>
             </div>
         )
     }
@@ -26,7 +28,7 @@ class PostsContainer extends React.Component {
     
 
 }
-
+//switch 
 //to see the list, create a mapStateToProps function
 
 const mapStateToProps = state => {

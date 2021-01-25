@@ -1,16 +1,16 @@
 import React from 'react' 
-
+import {Redirect} from 'react-router-dom'
 
 const PostShow = (props) => {
 
     console.log(props) 
 
     let post = props.posts[props.match.params.id - 1]
-    // console.log(post)
+    
 
     return (
         <li>
-        {post ? post.title :null} - {post ? post.author :null}
+            {post ? post.title : null} - {post ? post.author : null}
         </li>
     )
 

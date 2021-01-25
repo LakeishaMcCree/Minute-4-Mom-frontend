@@ -6,12 +6,12 @@ import PostShow from './PostShow'
 const PostList = (props) => {
 
     return (
-        <li>
+        <div>
             {props.posts.map(post => 
-            <div key={post.id}>
-                <Link path={`/posts/${post.id}`}>{post.name}</Link>
-            </div> )}
-        </li>
+            <li key={post.id}>
+                <Link to={`/posts/${post.id}`}>{post.title}</Link>
+            </li> )}
+        </div>
 
     )
 
