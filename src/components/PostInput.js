@@ -23,7 +23,7 @@ class PostInput extends React.Component {
         })
     }
 
-    handleSubmit = event => { //asynchronous
+    handleSubmit = (event) => { //asynchronous
         event.preventDefault();
         this.props.addPost(this.state)
         this.setState({
