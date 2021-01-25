@@ -8,8 +8,8 @@ class CommentsContainer extends React.Component {
     render() {
         return (
             <div>
-                <CommentInput/>
-                <Comments comments={this.props.post && this.props.post.comments}/>
+                <Comments comments={this.props.post && this.props.post.comments}/><br /><br />
+                <CommentInput post={this.props.post}/>
             </div>
 
         )

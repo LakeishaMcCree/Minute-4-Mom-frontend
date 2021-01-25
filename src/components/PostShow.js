@@ -8,7 +8,6 @@ const PostShow = (props) => {
     console.log(props) 
 
     let post = props.posts[props.match.params.id - 1]
-    
 
     return (
         <div>
