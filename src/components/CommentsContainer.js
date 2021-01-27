@@ -1,6 +1,6 @@
 import React from 'react' 
-import CommentInput from '../components/CommentInput'
-import Comments from '../components/Comments'
+import CommentNew from '../containers/CommentNew'
+import Comments from '../containers/Comments'
 
 class CommentsContainer extends React.Component {
 
@@ -9,7 +9,7 @@ class CommentsContainer extends React.Component {
         return (
             <div>
                 <Comments comments={this.props.post && this.props.post.comments}/><br /><br />
-                <CommentInput post={this.props.post}/>
+                <CommentNew post={this.props.post}/>
             </div>
 
         )
@@ -18,3 +18,4 @@ class CommentsContainer extends React.Component {
 }
 
 export default CommentsContainer
+

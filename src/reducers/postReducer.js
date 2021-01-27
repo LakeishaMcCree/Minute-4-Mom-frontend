@@ -16,6 +16,18 @@ export default function postReducer(state = {posts: []}, action) {
                 }
             })
             return {...state, posts: posts}
+        case 'DELETE_COMMENT':
+            let postComments = state.filter(post => post.id !== action.payload)
+            return [...postComments]
+            //     let postscomments = state.posts.map(post => {
+            //         if (post.id === action.payload.id) {
+            //             return action.payload
+            //         } else {
+            //             return post
+            //         }
+            //     })
+            // return {...state, posts: postscomments}    
+        
         default:
             return state
     }

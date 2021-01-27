@@ -1,29 +1,29 @@
 import React from 'react' 
 import {connect} from 'react-redux'
-import {Route, Switch} from 'react-router-dom'
 import {fetchPosts} from '../actions/fetchPosts'
-import PostInput from '../components/PostInput'
-import PostList from '../components/PostList'
-import PostShow from '../components/PostShow'
-
+// import PostInput from '../containers/PostNew'
+import PostShow from '../containers/PostShow'
+import {Link} from 'react-router-dom'
 
 class PostsContainer extends React.Component {
 
     componentDidMount() {
         this.props.fetchPosts()
     }
-
     render() {
         return (
-            <div>
-                <Switch> 
-                <Route path='/posts/new' component={PostInput}/>
-                <Route path='/posts/:id' render={(routerProps) => <PostShow {...routerProps} posts={this.props.posts} />} />
-                <Route path='/posts' render={(routerProps) => <PostList {...routerProps} posts={this.props.posts} />} />
-                </Switch>
-            </div>
+           
+        <div>
+            {this.props.posts.map(post => 
+            <li key={post.id}>
+                <Link to={`/posts/${post.id}`}>{post.title}</Link>
+            </li> )}
+        </div>
+
         )
     }
+
+    
         
     
 

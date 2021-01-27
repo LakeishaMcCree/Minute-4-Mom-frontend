@@ -26,14 +26,15 @@ class PostInput extends React.Component {
     handleSubmit = (event) => { //asynchronous
         event.preventDefault();
         this.props.addPost(this.state)
-        this.setState({
-            date: '',
-            title: '', 
-            author: '', 
-            mood: '', 
-            content: '', 
-            likes: ''
-        })
+        // this.setState({
+        //     date: '',
+        //     title: '', 
+        //     author: '', 
+        //     mood: '', 
+        //     content: '', 
+        //     likes: ''
+        // })
+        this.props.history.push('/posts')
     }
 
     render() {

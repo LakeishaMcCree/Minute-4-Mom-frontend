@@ -1,5 +1,3 @@
-
-
 export function fetchPosts() {
     return (dispatch) => {
         fetch('http://localhost:3000/posts')
