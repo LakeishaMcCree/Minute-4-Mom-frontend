@@ -1,10 +1,10 @@
 export const addPost = (post) => {
     
-    return (dispatch) => {
+    return(dispatch) => {
          return fetch('http://localhost:3000/posts', {
             method: 'POST',
             headers: {
-                'Content-Type': 'apllication/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({post:post})
         })

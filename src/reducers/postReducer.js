@@ -1,14 +1,5 @@
-import { createStore, applyMiddleware, compose} from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
 
-const initialState = {
-    posts: [
-        {id: '', date: '', title: '', author: '', mood: '', content: ''}
-    ]
-}
-
-const postReducer = (state = initialState, action) => {
+export default (state = {posts: []}, action) => {
 //object with a posts key pointing to an empty array
 //{posts: []}
     
@@ -44,4 +35,4 @@ const postReducer = (state = initialState, action) => {
     }
 }
 
-export default createStore (postReducer, composeWithDevTools(applyMiddleware(thunk)))
+

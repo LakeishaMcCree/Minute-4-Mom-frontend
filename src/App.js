@@ -5,17 +5,14 @@ import PostNew from './containers/PostNew'
 import NavBar from './components/NavBar'
 import PostsContainer from './containers/PostsContainer'
 import PostShow from './containers/PostShow'
-
+import {connect} from 'react-redux'
+import {fetchPosts} from './actions/fetchPosts'
 
 class App extends Component {
   
-  constructor() {
-    super();
-      this.state = {
-        id: 0, 
-          posts: []
-      }
-  }
+    componentDidMount() {
+      this.props.fetchPosts()
+    } 
 
   render() {
     return (
@@ -40,4 +37,4 @@ class App extends Component {
 //   }
 // }
 
-export default App
+export default connect(null, {fetchPosts})(App)
