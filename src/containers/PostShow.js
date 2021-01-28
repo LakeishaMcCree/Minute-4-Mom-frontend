@@ -1,13 +1,12 @@
 import React from 'react' 
 import { connect } from 'react-redux'
-import { render } from '@testing-library/react'
 import CommentsContainer from '../components/CommentsContainer'
 
 const PostShow = (props) => {
-        debugger
-        //let paramsId = parseInt(this.props.match.params.id)
-        //let post = props.posts.find(post => post.id === paramsId)
-        let post = props.match.params.id;
+        
+        let paramsId = parseInt(props.match.params.id)
+        let post = props.posts.find(post => post.id === paramsId)
+        //let post = props.match.params.id;
         
         return (
             <div>

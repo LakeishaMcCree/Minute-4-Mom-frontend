@@ -1,21 +1,22 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './components/Home'
 import PostNew from './containers/PostNew'
 import NavBar from './components/NavBar'
-import {connect} from 'react-redux'
-import {fetchPosts} from './actions/fetchPosts'
 import PostsContainer from './containers/PostsContainer'
 import PostShow from './containers/PostShow'
 
 
-class App extends React.Component {
-
-  // componentDidMount() {
-  //   this.props.fetchPosts()
-  // }
-
+class App extends Component {
   
+  constructor() {
+    super();
+      this.state = {
+        id: 0, 
+          posts: []
+      }
+  }
+
   render() {
     return (
       <Router>
@@ -39,4 +40,4 @@ class App extends React.Component {
 //   }
 // }
 
-export default connect(null, {fetchPosts})(App)
+export default App

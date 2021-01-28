@@ -1,6 +1,17 @@
+import { createStore, applyMiddleware, compose} from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
-export default function postReducer(state = {posts: []}, action) {
+const initialState = {
+    posts: [
+        {id: '', date: '', title: '', author: '', mood: '', content: ''}
+    ]
+}
+
+const postReducer = (state = initialState, action) => {
 //object with a posts key pointing to an empty array
+//{posts: []}
+    
 
     switch (action.type) {
         case 'FETCH_POSTS':
@@ -16,9 +27,9 @@ export default function postReducer(state = {posts: []}, action) {
                 }
             })
             return {...state, posts: posts}
-        case 'DELETE_COMMENT':
-            let postComments = state.filter(post => post.id !== action.payload)
-            return [...postComments]
+            case 'DELETE_COMMENT':
+                let postComments = state.filter(post => post.id !== action.payload)
+                return [...postComments]
             //     let postscomments = state.posts.map(post => {
             //         if (post.id === action.payload.id) {
             //             return action.payload
@@ -33,4 +44,4 @@ export default function postReducer(state = {posts: []}, action) {
     }
 }
 
-
+export default createStore (postReducer, composeWithDevTools(applyMiddleware(thunk)))

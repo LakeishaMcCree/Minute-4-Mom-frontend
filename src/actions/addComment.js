@@ -1,7 +1,7 @@
 export const addComment = (comment, postId) => {
 
     return(dispatch) => {
-        fetch(`http://localhost:3000/posts/${postId}/comments`, {
+        return fetch(`http://localhost:3000/posts/${postId}/comments`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -9,10 +9,7 @@ export const addComment = (comment, postId) => {
             body: JSON.stringify(comment)
         }) 
         .then(resp => resp.json())
-        .then(post => dispatch({
-            type: 'ADD_COMMENT', 
-            payload: post
-        }))
+        .then(post => dispatch({ type: 'ADD_COMMENT', payload: comment}))
     }
 
 }

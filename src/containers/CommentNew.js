@@ -2,11 +2,15 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {addComment} from '../actions/addComment'
 
-class CommentInput extends React.Component {
+class CommentNew extends React.Component {
 
-    state = {
-        name: '',
-        content: ''
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            name: '',
+            content: ''
+        }
     }
 
 
@@ -19,13 +23,14 @@ class CommentInput extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.addComment(this.state, this.props.post.id)
-        this.setState({
-            name: '',
-            content: ''
-        })
+        this.props.addComment(this.state) //this.props.post.id)
+        //     this.setState({
+        //         name: '',
+        //         content: ''
+        //     })
+        // }
+        this.props.history.push(`/posts/${postId}/comments`)
     }
-
     render () {
         return ( 
             <div>
@@ -35,7 +40,7 @@ class CommentInput extends React.Component {
                     <input type='text' name="name" value={this.state.name} onChange={this.handleChange}></input><br /><br />
                     <label>Comment:</label>
                     <input type='textarea' name="content" value={this.state.content} onChange={this.handleChange}></input><br /><br />
-                    <input type="submit" value="Add New Post"/>
+                    <input type="submit" value="Add New Comment"/>
                 </form>
             </div>
         
@@ -45,4 +50,4 @@ class CommentInput extends React.Component {
 
 }
 
-export default connect(null, {addComment})(CommentInput)
+export default connect(null, {addComment})(CommentNew)

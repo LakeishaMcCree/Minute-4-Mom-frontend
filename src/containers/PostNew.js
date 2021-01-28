@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {addPost} from '../actions/addPost'
 
 //form, will have states, so set it up as a class; in order to have a controlled form, we would need to control those values, have local state to control values (or in a Redux store)
-class PostInput extends React.Component {   
+class PostNew extends React.Component {   
 
     state = {
         
@@ -51,7 +51,6 @@ class PostInput extends React.Component {
                     <input type='text' placeholder='Mood' name="mood" value={ this.state.mood } onChange={ this.handleChange }/><br /><br />
                     <label>Let Me Clear My Mind...</label>
                     <input type='textarea' placeholder='Content' name="content" value={ this.state.content } onChange={ this.handleChange }/><br /><br />
-                    <input type='integer' placeholder="number of likes" name="likes" value={ this.state.likes } onChange={ this.handleChange }/><br /><br />
                     <input type="submit" value="Add New Post" className="btn"/>
                 </form>     
             </div>
@@ -59,4 +58,10 @@ class PostInput extends React.Component {
     }
 }
 
-export default connect(null, {addPost})(PostInput)
+const mapDispatchToProps = (dispatch) => {
+    return {
+       addPost: post => dispatch(addPost(post))
+   }
+}
+
+export default connect(mapDispatchToProps, {addPost})(PostNew)

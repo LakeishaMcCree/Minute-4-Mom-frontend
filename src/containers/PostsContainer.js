@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchPosts} from '../actions/fetchPosts'
 // import PostInput from '../containers/PostNew'
-import PostShow from '../containers/PostShow'
+//import PostShow from '../containers/PostShow'
 import {Link} from 'react-router-dom'
 
 class PostsContainer extends React.Component {
@@ -36,5 +36,7 @@ const mapStateToProps = state => {
         posts: state.posts 
     }
 }
+
+
 
 export default connect(mapStateToProps, {fetchPosts})(PostsContainer)

@@ -1,18 +1,15 @@
-export const addPost = (data) => {
+export const addPost = (post) => {
     
     return (dispatch) => {
-         fetch('http://localhost:3000/posts', {
+         return fetch('http://localhost:3000/posts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'apllication/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({post:post})
         })
         .then(resp => resp.json())
-        .then(post => dispatch({
-            type: 'ADD_POST', 
-            payload: post
-        }))
+        .then(post => dispatch({ type: 'ADD_POST', payload: post}))
     }
 
 }
