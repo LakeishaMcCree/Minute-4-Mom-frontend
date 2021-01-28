@@ -4,6 +4,15 @@ import {addComment} from '../actions/addComment'
 
 class CommentNew extends React.Component {
 
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            name: '',
+            content: ''
+        }
+    }
+
 
     handleChange = (event) => {
         this.setState({
@@ -15,7 +24,12 @@ class CommentNew extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.addComment(this.state) //this.props.post.id)
-        this.props.history.push(`/posts/${postId}/comments`)
+        //     this.setState({
+        //         name: '',
+        //         content: ''
+        //     })
+        // }
+        //this.props.history.push(`/posts/${postId}/comments`)
     }
     render () {
         return ( 

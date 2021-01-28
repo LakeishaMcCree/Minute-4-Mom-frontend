@@ -1,15 +1,20 @@
 import React from 'react' 
 import { connect } from 'react-redux'
-import CommentsContainer from '../components/CommentsContainer'
+import CommentsContainer from './CommentsContainer'
+import { deletePost } from '../actions/deletePost'
+
+
 
 const PostShow = (props) => {
+    
+    let paramsId = parseInt(props.match.params.id)
+    let post = props.posts.find(post => post.id === paramsId)
         
-        let paramsId = parseInt(props.match.params.id)
-        let post = props.posts.find(post => post.id === paramsId)
         //let post = props.match.params.id;
         
         return (
             <div>
+
                 <h2>
                     {post ? post.title : null} - {post ? post.author : null} 
                 </h2>
@@ -17,7 +22,8 @@ const PostShow = (props) => {
                 <p>Mood: {post ? post.mood : null}</p>
                 <p>{post ? post.content : null}</p> 
                 <br /><br></br>
-
+                <button onClick={() => deletePost(post.id)}>Remove Post?</button>
+                <br /><br></br>
                 <h4>Comments:</h4>
                 <CommentsContainer post={post}/>
             </div>
@@ -32,4 +38,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(PostShow)
+export default connect(mapStateToProps, {deletePost})(PostShow)
