@@ -19,21 +19,28 @@ export default (state = {posts: []}, action) => {
             })
             return {...state, posts: posts}
         case 'DELETE_POST':
-            let post = state.filter(post => post.id !== action.payload)
-            return {...post}
+            let post = state.posts.filter(post => post.id !== action.payload)
+            return [...post]
+        case 'EDIT_POST':
+            let updatePost = state.posts.map(post => {
+                if (post.id === action.payload.id) {
+                    return action.payload
+                } else {
+                    return post
+                }
+            })   
+            return {...state, posts: updatePost}          
         case 'DELETE_COMMENT':
-            let postComments = state.filter(post => post.id !== action.payload)
-            return [...postComments]
-
+                let postscomments = state.posts.map(post => {
+                    if (post.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return post
+                    }
+                })
+            return {...state, posts: postscomments}   
             
-            //     let postscomments = state.posts.map(post => {
-            //         if (post.id === action.payload.id) {
-            //             return action.payload
-            //         } else {
-            //             return post
-            //         }
-            //     })
-            // return {...state, posts: postscomments}    
+        
         
         default:
             return state

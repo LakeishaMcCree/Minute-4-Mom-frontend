@@ -6,15 +6,19 @@ class CommentNew extends React.Component {
 
     constructor(props) {
         super(props);
-    
+
         this.state = {
             name: '',
-            content: ''
+            content: ''  
         }
+        // this.handleChange = this.handleChange.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
     }
+        
+    
 
 
-    handleChange = (event) => {
+    handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -23,14 +27,14 @@ class CommentNew extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.addComment(this.state) //this.props.post.id)
-        //     this.setState({
-        //         name: '',
-        //         content: ''
-        //     })
-        // }
+        this.props.addComment(this.state, this.props.post.id)
         //this.props.history.push(`/posts/${postId}/comments`)
+        this.setState({
+            name: '',
+            content: ''
+        }) 
     }
+
     render () {
         return ( 
             <div>
@@ -49,5 +53,7 @@ class CommentNew extends React.Component {
     }
 
 }
+
+
 
 export default connect(null, {addComment})(CommentNew)

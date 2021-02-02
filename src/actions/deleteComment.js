@@ -1,4 +1,4 @@
-export const deleteComment = (commentId, postId) => {
+export const deleteComment = (postId, commentId) => {
 
 
     return (dispatch) => {

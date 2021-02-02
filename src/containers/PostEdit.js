@@ -1,21 +1,16 @@
 import React from 'react' 
-import {connect} from 'react-redux'
-import {addPost} from '../actions/addPost'
+import {connect} from 'react-redux' 
+import {editPost} from '../actions/editPost'
 
-//form, will have states, so set it up as a class; in order to have a controlled form, we would need to control those values, have local state to control values (or in a Redux store)
-class PostNew extends React.Component {   
-
-    state = {
-        
+class PostEdit extends React.Component {
+    
+    state ={
         date: '',
         title: '', 
-        author: '', 
-        mood: '', 
-        content: '', 
-        likes: ''
-        
-    } //local state, not redux store
-    
+        author: '',
+        mood: '',
+        content: ''
+    }
 
     handleChange = (event) => {
         this.setState({
@@ -25,8 +20,16 @@ class PostNew extends React.Component {
 
     handleSubmit = (event) => { //asynchronous
         event.preventDefault();
-        this.props.addPost(this.state)
-        this.props.history.push('/posts')
+        let post = {...this.state, id: this.props.account.id}
+        this.props.editPost(post)
+        //this.props.history.push(`/posts/${id}`)
+        this.setState({
+            date: '',
+            title: '', 
+            author: '',
+            mood: '',
+            content: ''
+        })
     }
 
     render() {
@@ -43,17 +46,16 @@ class PostNew extends React.Component {
                     <input type='text' placeholder='Mood' name="mood" value={ this.state.mood } onChange={ this.handleChange }/><br /><br />
                     <label>Let Me Clear My Mind...</label>
                     <input type='textarea' placeholder='Content' name="content" value={ this.state.content } onChange={ this.handleChange }/><br /><br />
-                    <input type="submit" value="Add New Post" className="btn"/>
+                    <input type="submit" value="Update Post" className="btn"/>
                 </form>     
             </div>
         )
     }
+PostEdit = {
+    posts: {}
+}
+    
+
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-       addPost: post => dispatch(addPost(post))
-   }
-}
-
-export default connect(mapDispatchToProps, {addPost})(PostNew)
+export default connect(null, {editPost})(PostEdit)
