@@ -1,6 +1,5 @@
 export const deletePost = postId => {
 
-
     return (dispatch) => {
         return fetch(`http://localhost:3000/posts/${postId}`,{
             method: 'DELETE', 
@@ -10,6 +9,8 @@ export const deletePost = postId => {
         })
         .then(resp => resp.json())
         .then(post => 
-            dispatch({type: 'DELETE_POST', payload: post.id}))
+            dispatch({ type: 'DELETE_POST', payload: post.id }))
+            
     }
 }
+ 

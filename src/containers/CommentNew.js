@@ -11,12 +11,7 @@ class CommentNew extends React.Component {
             name: '',
             content: ''  
         }
-        // this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
-        
-    
-
 
     handleChange = event => {
         this.setState({

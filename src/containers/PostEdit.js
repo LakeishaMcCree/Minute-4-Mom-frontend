@@ -1,6 +1,6 @@
 import React from 'react' 
 import {connect} from 'react-redux' 
-import {editPost} from '../actions/editPost'
+import { editPost } from '../actions/editPost'
 
 class PostEdit extends React.Component {
     
@@ -58,4 +58,4 @@ PostEdit = {
 
 }
 
-export default connect(null, {editPost})(PostEdit)
+export default connect(null, { editPost })(PostEdit)

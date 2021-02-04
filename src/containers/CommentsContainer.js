@@ -10,6 +10,7 @@ class CommentsContainer extends React.Component {
             <div>
                 <Comments comments={this.props.post && this.props.post.comments}/><br /><br />
                 <CommentNew post={this.props.post}/>
+                
             </div>
             
         )

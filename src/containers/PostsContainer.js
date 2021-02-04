@@ -1,20 +1,25 @@
 import React from 'react' 
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+//import PostItem from '../components/PostItem'
 
 class PostsContainer extends React.Component {
 
+
     render() {
 
-        const post = this.props.posts.map(post => 
+        const posts = this.props.posts.map(post => 
             <li key={post.id} post={post}>
                 <Link to={`/posts/${post.id}`}>{post.title}</Link>
             </li> )
-        
+       
         return (
            
         <div>
-            {post}
+            <h3>Posts List:</h3>
+            <ul className="collection">
+                { posts }
+            </ul>
         </div>
 
         )

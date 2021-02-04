@@ -1,8 +1,10 @@
+import { HistoryTwoTone } from "@material-ui/icons"
+
 export const deleteComment = (postId, commentId) => {
 
 
     return (dispatch) => {
-        fetch(`http://localhost:3000/posts/${postId}/comments/${commentId}`, {
+        return fetch(`http://localhost:3000/posts/${postId}/comments/${commentId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
