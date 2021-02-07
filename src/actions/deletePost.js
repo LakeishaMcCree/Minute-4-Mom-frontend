@@ -10,7 +10,8 @@ export const deletePost = postId => {
         .then(resp => resp.json())
         .then(post => 
             dispatch({ type: 'DELETE_POST', payload: post.id }))
-            
+         .then(document.location.reload(true))   
     }
+    
 }
  

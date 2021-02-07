@@ -1,5 +1,3 @@
-import { HistoryTwoTone } from "@material-ui/icons"
-
 export const deleteComment = (postId, commentId) => {
 
 
@@ -15,5 +13,6 @@ export const deleteComment = (postId, commentId) => {
             type: 'DELETE_COMMENT',
             payload: post
         }))
+        .then(document.location.reload(true))
     }
 }
