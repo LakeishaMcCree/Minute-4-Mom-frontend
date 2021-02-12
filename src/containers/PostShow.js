@@ -2,9 +2,7 @@ import React from 'react'
 import CommentsContainer from './CommentsContainer'
 import {connect} from 'react-redux'
 import {deletePost} from '../actions/deletePost'
-//import PostEdit from './PostEdit'
-
-
+import LikeButton from './LikeButton'
 
 const PostShow = (props) => {
   
@@ -23,7 +21,8 @@ const PostShow = (props) => {
                     {post ? post.title : null} - {post ? post.author : null} </h2>
                    <p> Date: {post ? post.date : null} </p>
                    <p>Mood: {post ? post.mood : null}</p>
-                     <p>{post ? post.content : null}</p> 
+                    <p>{post ? post.content : null}</p> 
+                     <LikeButton  /> <br /><br />
                      <button onClick={() => handleDelete(post)}>Delete Post</button><br /><br />
                     <br /><br /><br />
                     <h4>Comments:</h4>

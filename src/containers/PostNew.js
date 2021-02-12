@@ -5,7 +5,9 @@ import {addPost} from '../actions/addPost'
 //form, will have states, so set it up as a class; in order to have a controlled form, we would need to control those values, have local state to control values (or in a Redux store)
 class PostNew extends React.Component {   
 
-    state = {
+    constructor(props) {
+        super(props);
+        this.state = {
         
         date: '',
         title: '', 
@@ -13,7 +15,7 @@ class PostNew extends React.Component {
         mood: '', 
         content: '', 
         likes: ''
-        
+        }
     } //local state, not redux store
     
 
@@ -49,7 +51,7 @@ class PostNew extends React.Component {
         )
     }
 }
-
+//want my component to store the new post in state
 const mapDispatchToProps = (dispatch) => {
     return {
        addPost: post => dispatch(addPost(post))
